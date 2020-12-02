@@ -1,14 +1,13 @@
 <ion-header>
-  <ion-toolbar></ion-toolbar>
+    <ion-toolbar></ion-toolbar>
 </ion-header>
-<!-- CONTENT -->
 <ion-content
 [scrollEvents]="true">
   <!-- ROW -->
 <ion-row class="ion-padding">
   <ion-col>
     <!-- CARDS -->
-    <ion-text color="primary">
+    <ion-text color="success">
       <h4><ion-icon name="information-circle-outline"></ion-icon> News and Events</h4>
     </ion-text>
     <ng-container *ngFor="let im of items">
@@ -20,6 +19,8 @@
       <ion-card-content>
         <img [src]="im.img" [alt]="im.desc">
         {{im.info}}
+        <ion-item-divider></ion-item-divider>
+        <ion-button color="success" expand="full" >View Details</ion-button>
       </ion-card-content>
     </ion-card>
   </ng-container>

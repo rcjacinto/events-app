@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-toolbar></ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <!-- Calendar -->
+    <ion-text color="success" class="ion-text-center">
+      <h3>Events</h3>
+    </ion-text>
+    <ion-calendar [(ngModel)]="date"
+    [options]="optionsMulti"
+    (onChange)="onChange($event)"
+    [type]="type"
+    [format]="'YYYY-MM-DD'">
+  </ion-calendar>
+    <ion-text color="success">
+      <h5>School Calendar Information</h5>
+    </ion-text>
+    <ion-list>
+      <ng-container *ngFor="let ev of date">
+      <ion-item>
+        <ion-label class="ion-text-wrap ion-text-center">Test Event Sample</ion-label>
+          <ion-label slot="end">
+            <small>{{ev | date: 'mediumDate'}}</small></ion-label>
+        <ion-button color="success" fill="outline" size="small" slot="end">View</ion-button>
+      </ion-item>
+    </ng-container>
+    </ion-list>
+    <ion-text color="success" class="ion-text-center">
+        <h3>News</h3>
+    </ion-text>
+    <ng-container *ngFor="let im of items">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>{{im.name}}</ion-card-subtitle>
+            <ion-card-title>{{im.desc}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <img [src]="im.img" [alt]="im.desc">
+            {{im.info}}
+            <ion-item-divider></ion-item-divider>
+            <ion-button color="success" expand="full" >View Details</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ng-container>
+  </ion-content>
+  

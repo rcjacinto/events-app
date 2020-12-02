@@ -1,4 +1,5 @@
-<ion-tabs>
+<app-student-header [title]="selectedTab"></app-student-header>
+<ion-tabs #tabs (ionTabsDidChange)="setCurrentTab()">
   <ion-tab-bar slot="bottom" color="success">
     <ion-tab-button tab="dashboard">
       <ion-icon name="home"></ion-icon>

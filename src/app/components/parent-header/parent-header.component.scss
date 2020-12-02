@@ -1,4 +1,11 @@
-#parentTab{
+.img-icon{
+    width:120px;
+    border-radius: 50%;
+}
+.bg-success{
+    background-color:darkgreen!important;
+}
+#parentHeader{
     --background:darkgreen;
     --color:var(--ion-color-light);
     .tab-selected{

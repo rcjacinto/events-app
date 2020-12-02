@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar color="success">
+  <ion-toolbar id="parentHeader">
     <ion-buttons slot="start">
-      <ion-button (click)="openStudentMenu()">
+      <ion-button (click)="openParentMenu()">
         <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -9,7 +9,7 @@
   </ion-toolbar>
 </ion-header>
 <!-- Menu -->
-<ion-menu side="start" menuId="studentMenu" contentId="studentMain">
+<ion-menu side="start" menuId="parent-menu" contentId="parentMain">
   <ion-content>
     <ion-row class="bg-success ion-padding-vertical">
       <ion-col size="12" class="ion-justify-content-center ion-text-center">
@@ -17,8 +17,8 @@
       </ion-col>
       <ion-col size="12" class="ion-padding-horizontal">
         <ion-text color="light">
-          <h3>John Wick</h3>
-          <span>Student</span>
+          <h3>Lisa Manoban</h3>
+          <span>Parent/Guardian</span>
         </ion-text>
       </ion-col>
     </ion-row>
@@ -39,4 +39,4 @@
   </ion-content>
 </ion-menu>
 
-<ion-router-outlet id="studentMain"></ion-router-outlet>
+<ion-router-outlet id="parentMain"></ion-router-outlet>

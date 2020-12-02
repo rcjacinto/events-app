@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 
 @Component({
@@ -10,11 +11,15 @@ export class StudentHeaderComponent implements OnInit {
 
   @Input() title: string;
   constructor(
-    private menu: MenuController
+    private menu: MenuController,
+    public router:Router
   ) { }
-  openFirst() {
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
+  openStudentMenu() {
+    this.menu.enable(true, 'studentMenu');
+    this.menu.open('studentMenu');
+  }
+  signOut(){
+    this.router.navigate(['auth']);
   }
 
   ngOnInit() {}

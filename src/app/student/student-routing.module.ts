@@ -5,7 +5,7 @@ import { StudentPage } from './student.page';
 
 const routes: Routes = [
   {
-    path: 'student',
+    path: '',
     component: StudentPage,
     children: [
       {

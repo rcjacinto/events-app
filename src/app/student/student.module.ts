@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { StudentPageRoutingModule } from './student-routing.module';
 
 import { StudentPage } from './student.page';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { StudentPage } from './student.page';
     FormsModule,
     IonicModule,
     StudentPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [StudentPage]
 })

@@ -1,14 +1,16 @@
-<ion-content>
+<ion-content id="auth">
   <ion-grid no-padding>
     <!-- logo -->
     
     <ion-row class="align-items-start align-items-stretch ion-text-center">
       <ion-col size="10" class="ion-margin-top"offset="1">
         <img class="img-icon" src="../assets/img/logo.jpg">
+        <ion-text color="light">
+          <h3>SPCPC - Mobile App</h3>
+        </ion-text>
       </ion-col>
     <!-- Section form>-->
   <ion-col size="10" offset="1">
-    <form>
       <ion-row class="ion-align-items-start">
         <ion-col size="12">
           <!-- <h1><strong>{{data.title}}</strong> {{data.subtitle}}</h1> -->
@@ -19,34 +21,33 @@
         <ion-col size="12">
             <!-- Input-field-text -->
             <ion-item>
-              <ion-label position="floating">Email</ion-label>
-              <ion-input></ion-input>
+              <ion-label position="stacked">Email or Username</ion-label>
+              <ion-input [(ngModel)]="authId"></ion-input>
             </ion-item>
             <!-- Input-field-password -->
             <ion-item class="ion-margin-vertical">
-              <ion-label position="floating">Password</ion-label>
-              <ion-input></ion-input>
+              <ion-label position="stacked">Password</ion-label>
+              <ion-input [(ngModel)]="authPassword"></ion-input>
             </ion-item>
           <!-- Login button -->
           <ion-col size="12" no-padding>
-            <ion-button color="success" expand="full" (click)="onEvent('onLogin')">Login</ion-button>
+            <ion-button color="success" expand="full" (click)="authLogin()">Login</ion-button>
           </ion-col>
           <!-- Description -->
           <div class="ion-text-center ion-no-padding">
             <ion-row>
               <!-- Reset your password button -->
               <ion-col size="12">
-                <span>Forgot Password ?<a>Click here</a> </span>
+                <span>Forgot Password? <a>Click here</a> </span>
               </ion-col>
               <!-- Signup now button -->
               <ion-col size="12">
-                <span>Register<a>Now</a> </span>
+                <span>Register <a>Now</a> </span>
               </ion-col>
             </ion-row>
           </div>
         </ion-col>
       </ion-row>
-    </form>
     </ion-col>
         </ion-row>
   </ion-grid>
