@@ -9,7 +9,7 @@
   <ion-col>
     <!-- CARDS -->
     <ion-text color="primary">
-      <h4><ion-icon name="information-circle-outline"></ion-icon> News and Events</h4>
+      <h4> News and Events</h4>
     </ion-text>
     <ng-container *ngFor="let im of items">
     <ion-card>
@@ -20,6 +20,8 @@
       <ion-card-content>
         <img [src]="im.img" [alt]="im.desc">
         {{im.info}}
+        <ion-item-divider></ion-item-divider>
+        <ion-button color="success" expand="full" (click)="viewDetails(im)">View Details</ion-button>
       </ion-card-content>
     </ion-card>
   </ng-container>
