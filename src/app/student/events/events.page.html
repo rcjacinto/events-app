@@ -1,0 +1,26 @@
+<app-student-header title="Events and Activities"></app-student-header>
+<ion-content class="ion-padding">
+  <!-- Calendar -->
+  <ion-text color="success">
+    <h3>School Events</h3>
+  </ion-text>
+  <ion-calendar [(ngModel)]="date"
+  [options]="optionsMulti"
+  (onChange)="onChange($event)"
+  [type]="type"
+  [format]="'YYYY-MM-DD'">
+</ion-calendar>
+  <ion-text color="secondary">
+    <h5>School Calendar Information</h5>
+  </ion-text>
+  <ion-list>
+    <ng-container *ngFor="let ev of date">
+    <ion-item>
+      <ion-icon color="success" slot="start" name="calendar"></ion-icon>
+      <ion-label>Test Event Sample</ion-label>
+        <ion-label slot="end">
+          <small>{{ev | date: 'mediumDate'}}</small></ion-label>
+    </ion-item>
+  </ng-container>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,26 @@
+<app-student-header title="News"></app-student-header>
+<!-- CONTENT -->
+<ion-content
+[scrollEvents]="true">
+  <!-- ROW -->
+<ion-row class="ion-padding">
+  <ion-col>
+    <!-- CARDS -->
+    <ion-text color="success">
+      <h4> News</h4>
+    </ion-text>
+    <ng-container *ngFor="let im of items">
+    <ion-card>
+      <ion-card-header>
+        <img [src]="im.img" [alt]="im.desc">
+        <ion-card-subtitle>{{im.name}}</ion-card-subtitle>
+        <ion-card-title>{{im.desc}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{im.info}}
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+  </ion-col>
+</ion-row>
+</ion-content>

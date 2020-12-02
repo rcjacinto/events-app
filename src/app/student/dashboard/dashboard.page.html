@@ -1,0 +1,26 @@
+<app-student-header title="Student Dashboard"></app-student-header>
+<!-- CONTENT -->
+<ion-content
+[scrollEvents]="true">
+  <!-- ROW -->
+<ion-row class="ion-padding">
+  <ion-col>
+    <!-- CARDS -->
+    <ion-text color="primary">
+      <h4><ion-icon name="information-circle-outline"></ion-icon> News and Events</h4>
+    </ion-text>
+    <ng-container *ngFor="let im of items">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>{{im.name}}</ion-card-subtitle>
+        <ion-card-title>{{im.desc}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <img [src]="im.img" [alt]="im.desc">
+        {{im.info}}
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+  </ion-col>
+</ion-row>
+</ion-content>
