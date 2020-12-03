@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { ModalViewComponent } from 'src/app/components/modal-view/modal-view.component';
 
 @Component({
   selector: 'app-news',
@@ -13,7 +15,9 @@ export class NewsPage implements OnInit {
       img: null,
       info: "ero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,"};
   
-  constructor() { }
+  constructor(
+    public modal:ModalController
+  ) { }
 
   ngOnInit() {
     this.getRandomValues();
@@ -26,5 +30,16 @@ export class NewsPage implements OnInit {
         this.items.push(this.selection);
     }
     console.log(this.items);
+  }
+  async viewDetails(info){
+    console.log(info,'view');
+    const modal = await this.modal.create({
+      component: ModalViewComponent,
+      cssClass: 'my-custom-class',
+      componentProps:{
+        'newsData': info
+      }
+    });
+    return await modal.present();
   }
 }

@@ -8,14 +8,15 @@
 <ion-row class="ion-padding">
   <ion-col>
     <!-- CARDS -->
-    <ion-text color="primary">
-      <h4> News and Events</h4>
+    <ion-text color="success">
+      <h3> News and Events Dashboard</h3>
     </ion-text>
+    <ion-item-divider></ion-item-divider>
     <ng-container *ngFor="let im of items">
     <ion-card>
       <ion-card-header>
-        <ion-card-subtitle>{{im.name}}</ion-card-subtitle>
-        <ion-card-title>{{im.desc}}</ion-card-title>
+        <ion-card-title color="success">{{im.name}}</ion-card-title>
+        <ion-card-subtitle>{{im.desc}}</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         <img [src]="im.img" [alt]="im.desc">
