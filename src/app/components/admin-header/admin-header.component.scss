@@ -1,0 +1,15 @@
+.img-icon{
+    width:120px;
+    border-radius: 50%;
+}
+.bg-admin{
+    background-color:var(--ion-color-primary)!important;
+}
+#adminHeader{
+    --background:var(--ion-color-primary);
+    --color:var(--ion-color-light);
+    .tab-selected{
+        color:var(--ion-color-primary) !important;
+    }
+    
+}

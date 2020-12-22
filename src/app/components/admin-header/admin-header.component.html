@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar id="adminHeader">
+    <ion-buttons slot="start">
+      <ion-button (click)="openAdminMenu()">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>SPCPC | {{title | titlecase}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<!-- Menu -->
+<ion-menu side="start" menuId="parent-menu" contentId="parentMain">
+  <ion-content>
+    <ion-row class="bg-admin ion-padding-vertical">
+      <ion-col size="12" class="ion-justify-content-center ion-text-center">
+          <img class="img-icon" src="../assets/img/logo.jpg">
+      </ion-col>
+      <ion-col size="12" class="ion-padding-horizontal">
+        <ion-text color="light">
+          <h3>Admin</h3>
+          <span>Moderator</span>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-list>
+      <ion-item>
+        <ion-icon slot="start" color="primary" name="briefcase-outline"></ion-icon>
+        <ion-label>Services</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon slot="start" color="primary" name="call-outline"></ion-icon>
+        <ion-label> Contact Info </ion-label>
+      </ion-item>
+      <ion-item (click)="signOut()">
+        <ion-icon slot="start" color="primary" name="log-out-outline"></ion-icon>
+        <ion-label> Logout </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="parentMain"></ion-router-outlet>

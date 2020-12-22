@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonTabs } from '@ionic/angular';
 
 @Component({
   selector: 'app-admin',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.page.scss'],
 })
 export class AdminPage implements OnInit {
-
+  @ViewChild('tabs', { static: false }) tabs: IonTabs;
+  selectedTab:any;
+  pageTitle:any = null;
+  
   constructor() { }
 
   ngOnInit() {
+  }
+  setCurrentTab() {
+    this.pageTitle = this.tabs.getSelected();
+    this.pageTitle = this.pageTitle.replace("-"," ");
   }
 
 }

@@ -17,5 +17,5 @@ export class ModalViewComponent implements OnInit {
   ngOnInit() {}
   closeModal() {
     this.modal.dismiss();
-}
+  }
 }

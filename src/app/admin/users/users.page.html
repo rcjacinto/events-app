@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar></ion-toolbar>
+</ion-header>
+<!-- CONTENT -->
+<ion-content
+[scrollEvents]="true">
+  <!-- ROW -->
+<ion-row class="ion-padding">
+  <ion-col>
+    <ion-button>Create User</ion-button>
+      <ion-list>
+        <ion-item>
+          <ion-icon slot="start" name="person-outline"></ion-icon>
+          <ion-label>Full Name</ion-label>
+          <ion-label>Type</ion-label>
+          <ion-button color="secondary" slot="end">
+            <ion-icon name="eye-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+        <ng-container *ngFor="let news of newsItems">
+        <ion-item>
+          <ion-icon slot="start" name="person"></ion-icon>
+          <ion-label class="ion-text-wrap">{{ displayFullName(news.fullName)}}</ion-label>
+          <ion-label>{{news.type}}</ion-label>
+          <ion-button color="secondary" slot="end">
+            <ion-icon name="eye"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ng-container>
+      </ion-list>
+  </ion-col>
+</ion-row>
+</ion-content>

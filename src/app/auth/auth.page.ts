@@ -16,7 +16,7 @@ export class AuthPage implements OnInit {
   ngOnInit() {
   }
   authLogin(){
-    if(this.authId === "student" || this.authId === "parent"){
+    if(this.authId === "student" || this.authId === "parent" || this.authId === "admin"){
       this.router.navigate([this.authId]);
     }
   }
