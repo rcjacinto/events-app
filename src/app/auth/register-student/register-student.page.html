@@ -1,9 +1,66 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>register-student</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
+<ion-content id="auth">
+  <ion-grid no-padding>
+    <!-- logo -->
+    
+    <ion-row class="align-items-start align-items-stretch ion-text-center">
+      <ion-col size="10" class="ion-margin-top"offset="1">
+        <img class="img-icon" src="../assets/img/logo.jpg">
+        <ion-text color="light">
+          <h3>Student Registration</h3>
+        </ion-text>
+      </ion-col>
+    <!-- Section form>-->
+  <ion-col size="10" offset="1">
+      <ion-row class="ion-align-items-start">
+        <ion-col size="12">
+          <!-- <h1><strong>{{data.title}}</strong> {{data.subtitle}}</h1> -->
+        </ion-col>
+      </ion-row>
+      <!-- Input-field -->
+      <ion-row>
+        <ion-col size="12">
+            <!-- Input-field-text -->
+            <ion-item>
+              <ion-label position="stacked">Student #</ion-label>
+              <ion-input [(ngModel)]="user.idNumber"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">First Name</ion-label>
+              <ion-input [(ngModel)]="user.name.first"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Last Name</ion-label>
+              <ion-input [(ngModel)]="user.name.last"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Email</ion-label>
+              <ion-input [(ngModel)]="user.email"></ion-input>
+            </ion-item>
+            <!-- Input-field-password -->
+            <ion-item class="ion-margin-vertical">
+              <ion-label position="stacked">Password</ion-label>
+              <ion-input type="password" [(ngModel)]="enPass.mPassword"></ion-input>
+            </ion-item>
+            <ion-item class="ion-margin-vertical">
+              <ion-label position="stacked">Confirm Password</ion-label>
+              <ion-input type="password" [(ngModel)]="enPass.cPassword"></ion-input>
+            </ion-item>
+          <!-- Login button -->
+          <ion-col size="12" no-padding>
+            <ion-button color="success" expand="full" (click)="createAccount()">Register</ion-button>
+          </ion-col>
+          <!-- Description -->
+          <div class="ion-text-center ion-no-padding">
+            <ion-row>
+              <!-- Reset your password button -->
+              <ion-col size="12">
+                <span>Already Registered? <a routerLink="">Sign In Now</a> </span>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+        </ion-row>
+  </ion-grid>
 </ion-content>

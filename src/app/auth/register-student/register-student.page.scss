@@ -1,0 +1,20 @@
+#auth{
+    --background:linear-gradient(var(--ion-color-success), var(--ion-color-warning));
+    .img-icon{
+        margin-top: 10%;
+        border-radius: 50%;
+        width:20%;
+    }
+    ion-item {
+        --color: var(--ion-color-light);
+        --border-color: var(--ion-color-light);
+        --highlight-color-focused:var(--ion-color-light);
+        --background:transparent;
+      }
+      a{
+        color: var(--ion-color-light) !important;
+      }
+    ion-item.item-has-focus > ion-label{
+        color: var(--ion-color-light);
+    }
+}

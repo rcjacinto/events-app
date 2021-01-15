@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
+import { AuthService } from '../services/auth.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-auth',
@@ -10,14 +13,53 @@ export class AuthPage implements OnInit {
   authId:any;
   authPassword:any;
   constructor(
-    public router:Router
+    public router:Router,
+    public auth:AuthService,
+    private user: UserService,
+    public loadingController: LoadingController
   ) { }
 
   ngOnInit() {
+    this.auth.user.subscribe(async res=>{
+      const loading = await this.loadingController.create({
+        message: 'Please wait...',
+        duration: 2000,
+      });
+      loading.present();
+      if(res){
+        let userInfo = this.user.getUserInfo(res.email);
+        userInfo.subscribe(async res=>{
+          if(res){
+            await loading.onDidDismiss();
+            this.redirectToDashboard(res[0]);
+          }
+        });
+      }else{
+        this.auth.logOut();
+      }
+    });
   }
   authLogin(){
-    if(this.authId === "student" || this.authId === "parent" || this.authId === "admin"){
-      this.router.navigate([this.authId]);
+    this.auth.loginUser(this.authId,this.authPassword).then(res=>{
+      console.log(res);
+    }).catch(err=>{
+      console.log(err,'error');
+    });
+    // if(this.authId === "student" || this.authId === "parent" || this.authId === "admin"){
+    //   this.router.navigate([this.authId]);
+    // }
+  }
+  redirectToDashboard(info:any){
+    console.log(info);
+    localStorage.setItem('userInfo',JSON.stringify(info));
+    if(info.role === 1){
+      this.router.navigate(['student']);
+    } else if(info.role === 2){
+      this.router.navigate(['teacher']);
+    } else if(info.role === 3){
+      this.router.navigate(['parent']);
+    } else{
+      this.router.navigate(['admin']);
     }
   }
 

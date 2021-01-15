@@ -21,13 +21,13 @@
         <ion-col size="12">
             <!-- Input-field-text -->
             <ion-item>
-              <ion-label position="stacked">Email or Username</ion-label>
+              <ion-label position="stacked">Email</ion-label>
               <ion-input [(ngModel)]="authId"></ion-input>
             </ion-item>
             <!-- Input-field-password -->
             <ion-item class="ion-margin-vertical">
               <ion-label position="stacked">Password</ion-label>
-              <ion-input [(ngModel)]="authPassword"></ion-input>
+              <ion-input type="password" [(ngModel)]="authPassword"></ion-input>
             </ion-item>
           <!-- Login button -->
           <ion-col size="12" no-padding>
@@ -42,7 +42,7 @@
               </ion-col>
               <!-- Signup now button -->
               <ion-col size="12">
-                <span>Register <a>Now</a> </span>
+                <span routerLink="register-student">Register <a>Now</a> </span>
               </ion-col>
             </ion-row>
           </div>

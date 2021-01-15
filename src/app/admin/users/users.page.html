@@ -13,8 +13,8 @@
           <ion-icon slot="start" name="person-outline"></ion-icon>
           <ion-label>Full Name</ion-label>
           <ion-label>Type</ion-label>
-          <ion-button color="secondary" slot="end">
-            <ion-icon name="eye-outline"></ion-icon>
+          <ion-button color="medium" slot="end">
+            Action
           </ion-button>
         </ion-item>
         <ng-container *ngFor="let news of newsItems">
@@ -23,7 +23,7 @@
           <ion-label class="ion-text-wrap">{{ displayFullName(news.fullName)}}</ion-label>
           <ion-label>{{news.type}}</ion-label>
           <ion-button color="secondary" slot="end">
-            <ion-icon name="eye"></ion-icon>
+            View
           </ion-button>
         </ion-item>
       </ng-container>
