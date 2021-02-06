@@ -23,12 +23,21 @@ export class UserService {
   getUser(payload: User){
     return this.userCol.doc<User>(payload.id).valueChanges();
   }
+  getUsers(){
+    return this.userCol.snapshotChanges().pipe(map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data();
+        let id = a.payload.doc;
+        return { id, ...data };
+      });
+    }))
+  }
   getUserInfo(email:string){
     return this.firestore.collection<User>('users', ref =>
     ref.where('email', '==', email)).snapshotChanges().pipe(map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data();
-        const id = a.payload.doc.id;
+        const id = a.payload.doc;
         return { id, ...data };
       });
     }));

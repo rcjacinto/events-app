@@ -9,6 +9,9 @@
           <h3>Student Registration</h3>
         </ion-text>
       </ion-col>
+      <ion-col size="12">
+        <span>Register as <a routerLink="/register-parent">Parent</a> / <a routerLink="/register-teacher">Teacher</a> </span>
+      </ion-col>
     <!-- Section form>-->
   <ion-col size="10" offset="1">
       <ion-row class="ion-align-items-start">
@@ -35,6 +38,10 @@
             <ion-item>
               <ion-label position="stacked">Email</ion-label>
               <ion-input [(ngModel)]="user.email"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Contact #</ion-label>
+              <ion-input [(ngModel)]="user.mobile"></ion-input>
             </ion-item>
             <!-- Input-field-password -->
             <ion-item class="ion-margin-vertical">

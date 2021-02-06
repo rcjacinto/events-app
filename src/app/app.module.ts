@@ -13,12 +13,14 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule} from 'angularfire2/auth';
 import { AuthService } from './services/auth.service';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,AngularFireModule.initializeApp(firebaseConfig),AngularFirestoreModule,AngularFireAuthModule],
+  imports: [FormsModule,BrowserModule, IonicModule.forRoot(), AppRoutingModule,AngularFireModule.initializeApp(firebaseConfig),AngularFirestoreModule,AngularFireAuthModule],
   providers: [
     StatusBar,
     SplashScreen,

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { AdminModalNewsComponent } from 'src/app/components/admin-modal-news/admin-modal-news.component';
 
 @Component({
   selector: 'app-news-events',
@@ -8,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class NewsEventsPage implements OnInit {
 
   newsItems:any = [];
-  constructor() { }
+  constructor(
+    public modal:ModalController
+  ) { }
   ngOnInit(){
   }
 
@@ -28,7 +32,17 @@ export class NewsEventsPage implements OnInit {
           featuredImage:`../assets/img/random/${i}.jpg`
         });
     }
-    console.log(this.newsItems);
+  }
+  
+  async newsModal(info:any){
+    const modal = await this.modal.create({
+      component: AdminModalNewsComponent,
+      cssClass: 'my-custom-class',
+      componentProps:{
+        'userInfo': info
+      }
+    });
+    return await modal.present();
   }
 
 }

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { AdminModalUserComponent } from 'src/app/components/admin-modal-user/admin-modal-user.component';
+import { User } from 'src/app/models/user.model';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-users',
@@ -6,33 +10,42 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users.page.scss'],
 })
 export class UsersPage implements OnInit {
-
-  newsItems:any = [];
-  constructor() { }
+ userList:User[];
+  constructor(
+    private userService:UserService,
+    public modal:ModalController
+  ) { }
   ngOnInit(){
-  }
-
-  ionViewDidEnter() {
-    this.newsItems = [];
-    this.newPost();
+    this.userService.getUsers().subscribe(res=>{
+      this.userList = res;
+      console.log(this.userList);
+    });
   }
   displayFullName(str:any){
-    return str.firstName + " " +str.lastName;
+    return str.first + " " +str.last;
   }
-  newPost(){
-    for (let index = 10; index > 1; index--) {
-      let i = Math.floor((Math.random() * 3) + 1);
-      this.newsItems.push(
-        {
-          fullName: {
-            firstName: "Juan",
-            lastName: "Dela Cruz",
-          },
-          type: "Student",
-          date: Date(),
-          featuredImage:`../assets/img/random/${i}.jpg`
-        });
+  roleLabel(label){
+    let result = "";
+    if(label === 1){
+      result = "Student"
+    }else if(label === 2){
+      result = "Parent"
+    }else if(label===3){
+      result = "Teacher"
+    }else{
+      result = "Admin"
     }
+    return result;
+  }
+  async viewUser(info:User){
+    const modal = await this.modal.create({
+      component: AdminModalUserComponent,
+      cssClass: 'my-custom-class',
+      componentProps:{
+        'userInfo': info
+      }
+    });
+    return await modal.present();
   }
 
 }

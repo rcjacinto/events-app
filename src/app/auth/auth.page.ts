@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
 
@@ -16,7 +16,8 @@ export class AuthPage implements OnInit {
     public router:Router,
     public auth:AuthService,
     private user: UserService,
-    public loadingController: LoadingController
+    public loadingController: LoadingController,
+    public alertController: AlertController
   ) { }
 
   ngOnInit() {
@@ -42,8 +43,14 @@ export class AuthPage implements OnInit {
   authLogin(){
     this.auth.loginUser(this.authId,this.authPassword).then(res=>{
       console.log(res);
-    }).catch(err=>{
-      console.log(err,'error');
+    }).catch(async err=>{
+      console.log(err);
+      const alert = await this.alertController.create({
+        subHeader: 'Login Failed',
+        message: err.message,
+        buttons: ['Confirm']
+      });
+      await alert.present();
     });
     // if(this.authId === "student" || this.authId === "parent" || this.authId === "admin"){
     //   this.router.navigate([this.authId]);

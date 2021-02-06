@@ -7,23 +7,24 @@
   <!-- ROW -->
 <ion-row class="ion-padding">
   <ion-col>
-    <ion-button>Create User</ion-button>
+    <!-- <ion-button (click)="viewUser()">Create User</ion-button> -->
       <ion-list>
         <ion-item>
           <ion-icon slot="start" name="person-outline"></ion-icon>
           <ion-label>Full Name</ion-label>
-          <ion-label>Type</ion-label>
           <ion-button color="medium" slot="end">
             Action
           </ion-button>
         </ion-item>
-        <ng-container *ngFor="let news of newsItems">
+        <ng-container *ngFor="let news of userList">
         <ion-item>
           <ion-icon slot="start" name="person"></ion-icon>
-          <ion-label class="ion-text-wrap">{{ displayFullName(news.fullName)}}</ion-label>
-          <ion-label>{{news.type}}</ion-label>
-          <ion-button color="secondary" slot="end">
-            View
+          <ion-label class="ion-text-wrap">
+            <h2><b>{{ displayFullName(news.name)}}</b></h2>
+            <h4>{{roleLabel(news.role)}}</h4>
+          </ion-label>
+          <ion-button color="secondary" slot="end" (click)="viewUser(news)">
+            <ion-icon name="search"></ion-icon>
           </ion-button>
         </ion-item>
       </ng-container>

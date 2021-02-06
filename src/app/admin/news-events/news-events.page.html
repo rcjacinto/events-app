@@ -7,7 +7,7 @@
   <!-- ROW -->
 <ion-row class="ion-padding">
   <ion-col>
-    <ion-button>Create News/Events</ion-button>
+    <ion-button (click)="newsModal(null)">Create News/Events</ion-button>
       <ion-list>
         <ion-item>
           <ion-label>Title</ion-label>
@@ -16,8 +16,9 @@
         <ng-container *ngFor="let news of newsItems">
         <ion-item>
           <ion-icon slot="start" name="book-outline"></ion-icon>
-          <ion-label>{{news.title}}</ion-label>
-          <ion-button slot="end">{{news.type}}</ion-button>
+          <ion-label class="ion-text-wrap">
+            <h2>{{news.title}}</h2>
+          </ion-label>
         </ion-item>
       </ng-container>
       </ion-list>

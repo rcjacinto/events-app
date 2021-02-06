@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-admin-header',
@@ -11,7 +12,8 @@ export class AdminHeaderComponent implements OnInit {
   @Input() title: string;
   constructor(
     public menu:MenuController,
-    public router:Router
+    public router:Router,
+    private auth:AuthService
   ) { }
 
   ngOnInit() {}
@@ -20,7 +22,8 @@ export class AdminHeaderComponent implements OnInit {
     this.menu.open('parent-menu');
   }
   signOut(){
-    this.router.navigate(['auth']);
+    this.auth.logOut();
+    this.router.navigate(['']);
   }
 
 }
